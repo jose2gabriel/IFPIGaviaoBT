@@ -1,13 +1,16 @@
 // ============================================================================
-// SIMULAÇÃO DO BANCO DE DADOS LOCAL (IFPI GAVIÃO)
-// ATENÇÃO: Este banco simula um atraso de rede/I/O assíncrono (como SQLite/API real)
-// No padrão Big Tripe, as telas importam e manipulam diretamente estas funções e dados
-// sem tipagem formal, repositórios ou ViewModels.
+// FONTE DE DADOS (MODEL) — SIMULAÇÃO DO BANCO DE DADOS LOCAL (IFPI GAVIÃO)
+// Simula um atraso de rede/I/O assíncrono (como SQLite/API real). É consumida
+// exclusivamente pelo CardapioRepository — as Views e ViewModels não acessam
+// este arquivo diretamente.
 // ============================================================================
+
+import { Categoria } from "./Categoria";
+import { Produto } from "./Produto";
 
 const DELAY_MS = 600; // Simula 600ms de latência de consulta local
 
-export const BANCO_CATEGORIAS = [
+export const BANCO_CATEGORIAS: Categoria[] = [
   {
     id: "comidas",
     nome: "Comidas",
@@ -24,7 +27,7 @@ export const BANCO_CATEGORIAS = [
   },
 ];
 
-export const BANCO_PRODUTOS = [
+export const BANCO_PRODUTOS: Produto[] = [
   {
     id: "pastel-de-carne",
     categoriaId: "comidas",
